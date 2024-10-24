@@ -370,6 +370,7 @@ _PGFT_font_request(FTC_FaceID font_id, FT_Library library,
 
     Py_BEGIN_ALLOW_THREADS;
     error = FT_Open_Face(library, &id->open_args, id->font_index, afont);
+    FT_Set_Charmap(*afont, (*afont)->charmaps[0]);
     Py_END_ALLOW_THREADS;
 
     return error;
